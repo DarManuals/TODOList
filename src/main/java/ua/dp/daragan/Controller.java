@@ -1,8 +1,5 @@
 package ua.dp.daragan;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ua.dp.daragan.entities.Task;
@@ -30,6 +27,8 @@ public class Controller {
     @RequestMapping(value = "/tasks/add", method = RequestMethod.POST)
     public void message(@RequestParam(value = "name", required = true) String name,
                         @RequestParam(value = "priority", required = true) String priority) {
+
+        if(name.isEmpty() || priority.isEmpty() ) return;
         tasksRepo.save(new Task(null, name, priority) );
     }
 }
