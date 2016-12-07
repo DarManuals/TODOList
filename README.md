@@ -1,4 +1,5 @@
 # TODOList
-ToDo list for SkillsUp course
 
-Technologies: Spring, Hibernate, ReactJS, Bootstrap
+Back-end: Java Core, Spring framework, Spring Data, H2, Hibernate, Lombok
+
+Front-end: JavaScript, ReactJS, JQuery, CSS, Bootstrap
