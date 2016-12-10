@@ -19,8 +19,8 @@ public class TodoListApplication implements CommandLineRunner
 
 	@Override
 	public void run(String... strings) throws Exception {
-		tasksRepo.save(new Task(null, "Name0", "HIGH"));
-		tasksRepo.save(new Task(null, "Name2", "DEFAULT"));
-		tasksRepo.save(new Task(null, "Name1", "LOW"));
+		tasksRepo.save(new Task(null, "Name0", 3));
+		tasksRepo.save(new Task(null, "Name2", 2));
+		tasksRepo.save(new Task(null, "Name1", 1));
 	}
 }

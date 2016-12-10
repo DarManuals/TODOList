@@ -10,9 +10,9 @@ class Main extends React.Component {
         this.state = {
              showModal: false,
              tasks: [
-                        {id: 0, name: "Default1", priority: "HIGH"},
-                        {id: 1, name: "Default2", priority: "LOW"},
-                        {id: 2, name: "Default3", priority: "DEFAULT"}
+                        {id: 0, name: "Default1", priority: 3},
+                        {id: 1, name: "Default2", priority: 1},
+                        {id: 2, name: "Default3", priority: 2}
                     ]
         };
 

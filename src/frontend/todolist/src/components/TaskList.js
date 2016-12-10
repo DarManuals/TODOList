@@ -10,21 +10,24 @@ class AddForm extends React.Component {
 
     switchColor(priority){
         var priorityColor = "alert alert-warning";
+        var priorityName = "DEFAULT";
 
         switch(priority) {
-               case 'HIGH':
+               case 3:
                     priorityColor = "alert alert-danger";
+                    priorityName = "HIGH";
                     break;
 
-               case 'LOW':
+               case 1:
                     priorityColor = "alert alert-success";
+                    priorityName = "LOW";
                     break;
 
                default:
                break;
         }
 
-        return priorityColor;
+        return {prCol: priorityColor, prName: priorityName};
     }
 
    render() {
@@ -39,11 +42,11 @@ class AddForm extends React.Component {
               <tbody>
                    {
                         this.props.tasks.map( (t,i) =>
-                            <tr className={this.switchColor(t.priority)}>
+                            <tr className={this.switchColor(t.priority).prCol}>
                                  <td >{t.name}</td><td> </td>
                                  <td>{t.id}</td>
                                  <td>
-                                      <span>{t.priority}</span>
+                                      <span>{this.switchColor(t.priority).prName}</span>
                                       <span className="pull-right" ><Glyphicon glyph="glyphicon glyphicon-remove" onClick={() => this.props.onDelete(t.id)} /></span>
                                  </td>
                             </tr>

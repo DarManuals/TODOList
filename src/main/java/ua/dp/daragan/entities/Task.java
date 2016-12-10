@@ -15,10 +15,15 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Task {
+public class Task implements Comparable<Task>{
     @Id
     @GeneratedValue
     private Long id;
     private String name;
-    private String priority;
+    private Integer priority;
+
+    @Override
+    public int compareTo(Task otherTask) {
+        return this.priority.compareTo(otherTask.getPriority());
+    }
 }

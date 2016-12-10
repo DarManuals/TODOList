@@ -7,7 +7,7 @@ class AddForm extends React.Component {
         super();
         this.state = {
              showModal: false,
-             priority: "DEFAULT"
+             priority: "2"
         };
 
         this.close = this.close.bind(this);
@@ -53,13 +53,13 @@ class AddForm extends React.Component {
 
                            <h4>Task priority</h4>
                            <FormControl componentClass="select" onChange={this.handlePriorityChange}>
-                                   <option value="HIGH">HIGH</option>
-                                   <option selected value="DEFAULT">DEFAULT</option>
-                                   <option value="LOW">LOW</option>
+                                   <option value="3">HIGH</option>
+                                   <option selected value="2">DEFAULT</option>
+                                   <option value="1">LOW</option>
                            </FormControl>
                            <br />
                            <Button bsStyle="success" onClick={() => {
-                                this.setState({name: "", priority: "DEFAULT"});
+                                this.setState({name: "", priority: "2"});
                                 this.close();
                                 this.props.onAddTask(this.state.name, this.state.priority);
                                 }}>Add</Button>
