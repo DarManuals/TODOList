@@ -4,4 +4,4 @@
 
 **Front-end**: JavaScript, ReactJS, JQuery, CSS, Bootstrap
 
-[Link to Herouku](https://javatest123123123.herokuapp.com/)
+[Link to Herouku](https://javatodolist.herokuapp.com/)
