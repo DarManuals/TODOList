@@ -1,0 +1,30 @@
+#upstream back {
+#       server localhost:8080;
+#       server localhost:8080;
+#}
+
+upstream back {
+least_conn;
+server 172.17.0.2:32768 max_fails=3 fail_timeout=60 weight=1;
+server 172.17.0.2:32769 max_fails=3 fail_timeout=60 weight=1;
+
+}
+
+server {
+        listen 80;
+
+        root /var/www/app;
+        index index.html index.htm;
+
+        server_name localhost;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        location /app/ {
+                proxy_pass http://back;
+        }
+
+}
+
