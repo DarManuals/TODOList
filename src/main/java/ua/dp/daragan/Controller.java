@@ -17,19 +17,19 @@ public class Controller {
     @Autowired
     private Tasks tasksRepo;
 
-    @RequestMapping(value = "/tasks")
+    @RequestMapping(value = "/app/tasks")
     public List<Task> getTasks(){
         List<Task> list = tasksRepo.findAll();
         Collections.sort(list, Collections.reverseOrder());
         return list;
     }
 
-    @RequestMapping(value = "/tasks/delete/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/app/tasks/delete/{id}", method = RequestMethod.POST)
     public void deleteTask(@PathVariable long id) {
         tasksRepo.delete(id);
     }
 
-    @RequestMapping(value = "/tasks/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/app/tasks/add", method = RequestMethod.POST)
     public void message(@RequestParam(value = "name", required = true) String name,
                         @RequestParam(value = "priority", required = true) String priority) {
 

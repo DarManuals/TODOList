@@ -26,7 +26,7 @@ class Main extends React.Component {
     }
 
     updateTasks() {
-        $.get("/tasks", (data) => {
+        $.get("/app/tasks", (data) => {
              this.setState({tasks: data})
         });
     }
@@ -34,7 +34,7 @@ class Main extends React.Component {
     onAddTask(name, priority) {
         $.ajax({
                 type: "POST",
-                url: "/tasks/add",
+                url: "/app/tasks/add",
                 data: {name: name, priority: priority},
                 success: () => this.updateTasks(),
                 error: () => this.updateTasks()
@@ -42,7 +42,7 @@ class Main extends React.Component {
     }
 
     onDeleteTask(id) {
-         $.post("/tasks/delete/" + id, null, () => this.updateTasks());
+         $.post("/app/tasks/delete/" + id, null, () => this.updateTasks());
     }
 
   render() {
