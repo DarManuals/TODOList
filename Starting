@@ -1,4 +1,9 @@
-docker run -d --link consul:consul --name registrator -v /var/run/docker.sock:/tmp/docker.sock -h $HOSTNAME progrium/registrator consul://consul:8500
+
+docker run -d --name=consul --net=host gliderlabs/consul-server -advertise=172.17.0.1 -bootstrap
+#docker run -d --link consul:consul --name registrator -v /var/run/docker.sock:/tmp/docker.sock -h $HOSTNAME progrium/registrator consul://consul:8500
 docker run -d --name=registrator --net=host --volume=/var/run/docker.sock:/tmp/docker.sock gliderlabs/registrator:latest consul://172.17.0.1:8500
-docker run -dti -P a1
+docker run -dti -P java
+docker run -dti -P java
+docker run -dti -P js
+docker run -dti -P js
 ./consul-template -template "app.conf.tpl:/etc/nginx/conf.d/app.conf:service nginx restart" &
